@@ -76,7 +76,7 @@
 }
 
 /* --- Grid Menu (Kunci Utama Laptop) --- */
-.service-grid {
+.grid-container {
     display: grid;
     /* Laptop: 4 kolom yang lebarnya fleksibel */
     grid-template-columns: repeat(4, 1fr); 
