@@ -89,11 +89,10 @@
 }
 
 .main-img {
-    width:500%;
-    max-width:400px;
-    height:auto;
-    border-radius:8px;
-
+   width: 80px; /* Ikon lebih besar di laptop */
+    height: auto;
+    margin: 0 auto 15px;
+    display: block;
 }
 
 .header-section h3 {
