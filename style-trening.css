@@ -1,5 +1,4 @@
-/* navbar start */
-
+/* --- Global Reset --- */
 * {
     margin: 0;
     padding: 0;
@@ -9,149 +8,138 @@
     text-decoration: none;
 }
 
+/* --- Navbar (Dioptimasi untuk Laptop Lebar) --- */
 .navbar {
     display: flex;
-    background-color:rgb(246, 219, 145);
-    height:60px;
+    justify-content: space-between; 
     align-items: center;
-    justify-content:center;
-    padding: 0 20px;
+    background-color: rgb(246, 219, 145);
+    padding: 0 5%; /* Memberi jarak di ujung kiri-kanan layar laptop */
+    min-height: 80px; /* Sedikit lebih tinggi agar lega */
+    width: 100%;
     position: relative;
+    z-index: 1000;
 }
 
 .logo {
-    position:absolute;
-    left:20px;
-    font-weight:bold;
-    font-style:italic;
-    font-size:30px;
+    font-weight: bold;
+    font-size: 28px; /* Lebih besar sedikit di laptop */
+    white-space: nowrap;
+    color: #000;
+    cursor: default;
 }
 
-.navbar .logo span-a {
-    color:red;
-}
-
-.navbar .logo span-b {
-    color:rgb(175, 175, 15);
-}
-
-.navbar .logo span-c {
-    color:green;
-}
+.navbar .logo span-a { color: red; }
+.navbar .logo span-b { color: rgb(175, 175, 15); }
+.navbar .logo span-c { color: green; }
 
 .nav-links {
-    list-style:none;
-    display:flex;
-    gap:30px;
-    margin:0;
-    padding:0;
+    list-style: none;
+    display: flex;
+    gap: 40px; /* Jarak menu lebih lebar di laptop */
 }
 
 .nav-links li a {
-    text-decoration:none;
-    color:#000;
-    font-weight:bold;
-    font-size:20px;
+    color: #000;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.3s;
 }
 
 .navbar .nav-links a:hover {
-    color:red;
+    color: red;
 }
 
-.navbar .nav-links a::after {
-    display: block;
-    padding-bottom: 0.5rem;
-    border-bottom: 0.1 solid red;
-    transform: scaleX(0);
-    transition: 0.2s linear;
-}
- 
-.navbar .nav-links a:hover::after {
-    transform: scaleX(0.5);
-}
-
-/* navbar end */
-
-/* 1. navbar tetap di paling atas dan tidak tertutup */
-.navbar {
-    position:fixed;
-    top:0;
-    width:100%;
-    z-index:1000;
+/* --- Hero Section & Wrapper --- */
+.hero-section {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('pp16.jpeg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Mulai dari atas agar rapi */
+    align-items: center;
+    padding-top: 50px;
 }
 
-/* 2.bagian gambar/H3 agar tidak tertutup navbar */
-.header-section {
-    padding-top:61px;
-    text-align:center;
-    position:relative;
-    z-index:10;
+.hero-text {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+    font-size: 35px; /* Lebih gagah di laptop */
+    font-style: italic;
+    font-weight: bold;
+    width: 90%;
+    max-width: 1000px;
 }
 
-.main-img {
-   width: 120px; /* Ikon lebih besar di laptop */
+/* --- Grid Menu (Kunci Utama Laptop) --- */
+.service-grid {
+    display: grid;
+    /* Laptop: 4 kolom yang lebarnya fleksibel */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 25px;
+    width: 90%; /* Mengambil 90% lebar layar laptop */
+    max-width: 1200px; /* Batas maksimal agar tidak terlalu melar di monitor ultra-wide */
+    margin: 0 auto;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 25px 15px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    background-color: white;
+}
+
+.main-img, .main-img1 {
+    width: 80px; /* Ikon lebih besar di laptop */
     height: auto;
     margin: 0 auto 15px;
     display: block;
 }
 
-.header-section h3 {
-    font-size:30px;
-    font-style:bold;
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+/* Tablet (Layar Sedang) */
+@media screen and (max-width: 1024px) {
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 Kolom */
+    }
+    .navbar {
+        padding: 0 3%;
+    }
 }
 
-/* 3.item-item berada di bawah gambar */
-.item-housekeeping {
-    margin-top:20px;
-    position:relative;
-    z-index:1;
-}
+/* Smartphone (Layar Kecil) */
+@media screen and (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+        min-height: auto;
+    }
 
-.item-housekeeping p1 {
-    font-size:20px;
-    font-style:bold;
-    text-aligan:center;
-}
+    .nav-links {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
-/*judul utaman*/
-h1 {
-    text-align:center;
-    color:black;
+    .service-grid {
+        grid-template-columns: 1fr; /* 1 Kolom saja di HP */
+        width: 95%;
+    }
 
-}
-
-/* grid untuk membagi dua kolom */
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5px;
-    padding:20px;
-}
-
-/* kotak untuk masing-masing item */
-.item-housekeeping {
-    border: 2px solid #ebc853;
-    border-radius: 12px;
-    padding:20px;
-    background-color:rgba(255, 255, 255 0.8);
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-}
-
-.item-housekeeping h3 {
-    margin:0 0 5px 0;
-    color: #2980b9;
-    font-size: 16px;
-}
-
-.item-housekeeping p {
-    margin:0;
-    font-size:13px;
-    text-align:center;
-}
-
-.item-housekeeping a{
-    text-align:center;
-    color:black;
-    
-
+    .hero-text {
+        font-size: 20px;
+    }
 }
