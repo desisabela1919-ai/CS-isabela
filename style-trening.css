@@ -107,6 +107,11 @@
     z-index:1;
 }
 
+.item-housekeeping h2 {
+    font-size:30px;
+    font-style:bold;
+}
+
 /*judul utaman*/
 h1 {
     text-align:center;
